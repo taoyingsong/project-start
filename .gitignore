@@ -1,10 +1,12 @@
 node_modules
 dist
 package-lock.json
+.idea/
+.DS_Store
 
 # 下边忽略配置来源 https://gist.github.com/salcode/10017553
 # ignore all files starting with . or ~
-.*
+#.*
 ~*
 
 # ignore composer vendor directory
