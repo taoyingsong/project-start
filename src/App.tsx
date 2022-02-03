@@ -1,17 +1,17 @@
-import React, { lazy, Suspense, useState } from 'react';
+import React, { lazy, Suspense, useState } from 'react'
 // import { square } from "./math.bak";
 
-const LazyComponent = lazy(() => import('./LazyComponent'));
+const LazyComponent = lazy(() => import('./LazyComponent'))
 const App = () => {
-  const [count, setCount] = useState<number>(0);
+  const [count, setCount] = useState<number>(0)
 
   const increment = () => {
-    setCount(_count => _count + 1);
-  };
+    setCount(_count => _count + 1)
+  }
 
   const decrement = () => {
-    setCount(_count => _count - 1);
-  };
+    setCount(_count => _count - 1)
+  }
 
   return (
     <div>
@@ -31,7 +31,7 @@ const App = () => {
         <LazyComponent />
       </Suspense>
     </div>
-  );
-};
+  )
+}
 
-export default React.memo(App);
+export default React.memo(App)
