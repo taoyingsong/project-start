@@ -1,46 +1,55 @@
-const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const path = require('path')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
-const devMode = process.env.NODE_ENV !== 'production';
+const devMode = process.env.NODE_ENV !== 'production'
 
 module.exports = {
   entry: {
+    // app: './src/todo/index.js',
+    // app: './src/essentials/index.js',
     app: './src/index.tsx',
   },
   output: {
-    filename: '[name].[contenthash].js',
+    filename: devMode ? '[name].js' : '[name].[contenthash].js',
     path: path.resolve(__dirname, '../dist'),
     clean: true,
   },
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
+        test: /\.(js|jsx|ts|tsx)$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
-          options: {
-            cacheDirectory: true,
-          },
+          // // 在babel.config.js中配置
+          // options: {
+          //   cacheDirectory: true, // 暂时去掉缓存方便调试
+          //   plugins: ['@babel/plugin-transform-runtime'],
+          // },
         },
       },
-      // {
-      //     test: /\.tsx?$/,
-      //     use: 'ts-loader',
-      //     exclude: /node_modules/,
-      // },
       {
         test: /\.(le|c)ss$/i,
+        exclude: [/\.module\.less$/i], // node_modules文件（其中的antd好像就没考虑支持css modules）、结尾没有.module的less文件，不开启css modules。这时全局生效
+        use: [
+          devMode ? 'style-loader' : MiniCssExtractPlugin.loader, // 直接在development环境写MiniCssExtractPlugin.loader不行。
+          'css-loader',
+          'less-loader',
+        ],
+      },
+      {
+        test: /\.(le|c)ss$/i,
+        include: [/\.module\.less$/i], // 处理node_modules以外的样式文件
         use: [
           devMode ? 'style-loader' : MiniCssExtractPlugin.loader, // 直接在development环境写MiniCssExtractPlugin.loader不行。
           {
             // CSS 模块的命名导出， 被修改为以camelCase的形式
             loader: 'css-loader',
             options: {
-              esModule: true,
+              importLoaders: 1,
               modules: {
-                namedExport: true,
-                localIdentName: 'foo__[name]__[local]',
+                mode: 'local',
+                exportLocalsConvention: 'camelCase',
               },
             },
           },
@@ -60,4 +69,4 @@ module.exports = {
   resolve: {
     extensions: ['.tsx', '.ts', 'jsx', '.js', '.json'],
   },
-};
+}

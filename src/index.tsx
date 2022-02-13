@@ -1,7 +1,21 @@
-import React from 'react';
-import { render } from 'react-dom';
-import App from './App';
-import './style.less';
+import React from 'react'
+import { render } from 'react-dom'
+import 'antd/dist/antd.css'
+import { BrowserRouter } from 'react-router-dom'
+import App from './App'
 
-const root = document.getElementById('root');
-render(<App />, root);
+console.log('in project begin ...........')
+// const renderApp = () => {
+const Home = () => {
+  console.log('in project begin home ...........')
+  return (
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  )
+}
+
+render(<Home />, document.getElementById('root'))
+// }
+//
+// renderApp()

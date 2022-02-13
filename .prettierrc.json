@@ -4,5 +4,6 @@
   "printWidth": 120,
   "arrowParens": "avoid",
   "trailingComma": "es5",
-  "semi": true
+  "semi": false,
+  "endOfLine": "lf"
 }

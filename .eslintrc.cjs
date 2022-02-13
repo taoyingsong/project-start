@@ -36,13 +36,16 @@ module.exports = {
         '@typescript-eslint',
     ],
     rules: {
+        'prettier/prettier': ['error', {
+            "semi": false,
+        }],
         'no-use-before-define': 'off',
-        '@typescript-eslint/no-use-before-define': ['error'],
+        // '@typescript-eslint/no-use-before-define': ['error'],
         'react/function-component-definition': [
             'error',
             {
-                namedComponents: 'arrow-function',
-                unnamedComponents: 'arrow-function',
+                'namedComponents': 'arrow-function',
+                'unnamedComponents': 'arrow-function',
             },
         ],
         'react/jsx-filename-extension': ['error', {'extensions': ['.tsx', '.ts', '.jsx', '.js']}],
@@ -56,6 +59,14 @@ module.exports = {
                 'tsx': 'never'
             }
         ],
-        'import/no-extraneous-dependencies': ['error', {devDependencies: true}],
+        'import/no-extraneous-dependencies': ['error', {'devDependencies': true}],
+        'import/prefer-default-export': 'off',
+        'no-param-reassign': 'off',
+        'jsx-a11y/label-has-associated-control': 'off',
+        'jsx-a11y/control-has-associated-label': 'off',
+        'react/prop-types': 'off',
+        'no-underscore-dangle': 'off',
+        'no-plusplus': ['error', {'allowForLoopAfterthoughts': true}],
+        'no-shadow': 'off',
     },
 };
