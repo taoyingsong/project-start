@@ -3,7 +3,6 @@ import { Routes, Route, Outlet, Link } from 'react-router-dom'
 import NoMatch from '../common/component/noMatch/NoMatch'
 
 const Dashboard = () => {
-  console.log('dashboard ....')
   return (
     <Routes>
       <Route path="/" element={<DashboardLayout />}>

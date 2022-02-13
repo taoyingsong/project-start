@@ -2,7 +2,6 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import App from './App'
 import { store } from './store'
-import * as serviceWorker from './serviceWorker'
 
 const count = () => {
   return (
@@ -15,5 +14,3 @@ const count = () => {
 }
 
 export default React.memo(count)
-
-serviceWorker.unregister()

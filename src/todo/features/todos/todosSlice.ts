@@ -15,12 +15,7 @@ interface IEntities {
 }
 
 const todosAdapter = createEntityAdapter<ITodo>()
-console.log(
-  'getInitialState result is:',
-  todosAdapter.getInitialState({
-    status: 'idle',
-  })
-)
+
 const initialState = todosAdapter.getInitialState({
   status: 'idle',
   ids: [] as number[],
@@ -29,14 +24,12 @@ const initialState = todosAdapter.getInitialState({
 
 export const fetchTodos = createAsyncThunk('todos/fetchTodos', async () => {
   const response = await client.get('/fakeApi/todos')
-  console.log('fetchTodos', response.todos)
   return response.todos as ITodo[]
 })
 
 export const saveNewTodo = createAsyncThunk('todos/saveNewTodo', async (text: string) => {
   const initialTodo = { text }
   const response = await client.post('/fakeApi/todos', { todo: initialTodo })
-  console.log('saveNewTodo', response.todo)
   return response.todo as ITodo
 })
 

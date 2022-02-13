@@ -13,7 +13,6 @@ const Todo = React.lazy(() => import('./todo/index'))
 
 const App = () => {
   const location = useLocation()
-  console.log('App location is...:', location)
   return (
     <>
       <Routes>
