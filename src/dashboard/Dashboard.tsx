@@ -16,7 +16,10 @@ const Dashboard = () => {
 
 const DashboardLayout = () => {
   return (
-    <div>
+    <main>
+      <header style={{ textAlign: 'center' }}>
+        <h2>Dashboard</h2>
+      </header>
       <nav>
         <ul>
           <li>
@@ -27,11 +30,11 @@ const DashboardLayout = () => {
           </li>
         </ul>
       </nav>
-
       <hr />
-
-      <Outlet />
-    </div>
+      <section style={{ margin: '0 20px' }}>
+        <Outlet />
+      </section>
+    </main>
   )
 }
 

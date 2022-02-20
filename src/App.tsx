@@ -8,7 +8,7 @@ import Dashboard from './dashboard/Dashboard'
 import './App.less'
 
 const { Content, Sider } = Layout
-const Count = React.lazy(() => import('./count/index'))
+const Counter = React.lazy(() => import('./counter/index'))
 const Todo = React.lazy(() => import('./todo/index'))
 
 const App = () => {
@@ -20,10 +20,10 @@ const App = () => {
           {/* <Route index element={<Home />} /> */}
           <Route path="dashboard/*" element={<Dashboard />} />
           <Route
-            path="count"
+            path="counter"
             element={
               <React.Suspense fallback={<Loading />}>
-                <Count />
+                <Counter />
               </React.Suspense>
             }
           />
@@ -44,7 +44,7 @@ const App = () => {
 }
 const MenuLinkMap: { [key: string]: string[] } = {
   '/dashboard': ['1'],
-  '/count': ['2'],
+  '/counter': ['2'],
   '/todo': ['3'],
 }
 const AppLayout = () => {
@@ -66,10 +66,10 @@ const AppLayout = () => {
       >
         <Menu theme="dark" selectedKeys={selectedMenuKeys} defaultSelectedKeys={['1']} mode="inline">
           <Menu.Item key="1" icon={<DesktopOutlined />}>
-            <Link to="/dashboard">dashboard</Link>
+            <Link to="/dashboard">Dashboard</Link>
           </Menu.Item>
           <Menu.Item key="2" icon={<PieChartOutlined />}>
-            <Link to="/count">Count</Link>
+            <Link to="/counter">Counter</Link>
           </Menu.Item>
           <Menu.Item key="3" icon={<UserOutlined />}>
             <Link to="/todo">Todo</Link>

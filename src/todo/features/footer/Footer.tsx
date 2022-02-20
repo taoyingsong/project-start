@@ -3,17 +3,9 @@ import { Button, Space } from 'antd'
 import { useAppSelector, useAppDispatch } from '../../common/hooks/reactRedux'
 import { allTodosCompleted, completedTodosCleared, selectTodos } from '../todos/todosSlice'
 
-const RemainingTodos = ({ count }: { count: number }) => {
-  return (
-    <div>
-      剩余的待办事项: <strong>{count}</strong>项
-    </div>
-  )
-}
-
 const Footer = () => {
   const dispatch = useAppDispatch()
-
+  const todos = useAppSelector(state => state.todos)
   const todosRemaining = useAppSelector(state => {
     const uncompletedTodos = selectTodos(state).filter(todo => !todo.completed)
     return uncompletedTodos.length
@@ -23,8 +15,8 @@ const Footer = () => {
   const onClearCompletedClicked = () => dispatch(completedTodosCleared())
 
   return (
-    <section className="todo-footer">
-      <RemainingTodos count={todosRemaining} />
+    <section className="todo-footer" data-testid="todoFooter">
+      <div>{`剩余的待办事项: ${todosRemaining}项`}</div>
       <div className="actions">
         <Space>
           <Button type="primary" size="large" onClick={onMarkCompletedClicked}>

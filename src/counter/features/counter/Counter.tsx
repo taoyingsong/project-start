@@ -11,7 +11,7 @@ import {
 } from './counterSlice'
 import styles from './Counter.module.less'
 
-export const Counter = () => {
+const Counter = () => {
   const count = useAppSelector(selectCount)
   const dispatch = useAppDispatch()
   const [incrementAmount, setIncrementAmount] = useState('2')
@@ -24,13 +24,20 @@ export const Counter = () => {
         <button type="button" className={styles.button} onClick={() => dispatch(decrement())}>
           -
         </button>
-        <span className={styles.value}>{count}</span>
+        <span className={styles.value} data-testid="counterResult">
+          {count}
+        </span>
         <button type="button" className={styles.button} onClick={() => dispatch(increment())}>
           +
         </button>
       </div>
       <div className={styles.row}>
-        <input className={styles.textbox} value={incrementAmount} onChange={e => setIncrementAmount(e.target.value)} />
+        <input
+          className={styles.textbox}
+          value={incrementAmount}
+          onChange={e => setIncrementAmount(e.target.value)}
+          data-testid="counterStep"
+        />
         <button type="button" className={styles.button} onClick={() => dispatch(incrementByAmount(incrementValue))}>
           同步增加步长数量
         </button>
@@ -49,3 +56,4 @@ export const Counter = () => {
     </div>
   )
 }
+export default React.memo(Counter)

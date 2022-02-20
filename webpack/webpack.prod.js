@@ -2,6 +2,7 @@ const { merge } = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const common = require('./webpack.common')
 
 module.exports = merge(common, {
@@ -41,5 +42,6 @@ module.exports = merge(common, {
       chunkFilename: '[id].[contenthash].css',
       ignoreOrder: false, // Enable to remove warnings about conflicting order
     }),
+    new BundleAnalyzerPlugin(),
   ],
 })

@@ -1,16 +1,10 @@
 import { createAsyncThunk, createEntityAdapter, createSelector, createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { client } from '../../api/client'
+import { fetchTodosAPI, saveNewTodoAPI, ITodo } from './TodoAPI'
 import { StatusFilters } from '../filters/filtersSlice'
-
+// eslint-disable-next-line import/no-cycle
 import { RootState } from '../../rootReducer'
 
-interface ITodo {
-  id: number
-  color: string
-  completed: boolean
-  text: string
-}
-interface IEntities {
+export interface IEntities {
   [key: number]: ITodo
 }
 
@@ -23,14 +17,13 @@ const initialState = todosAdapter.getInitialState({
 })
 
 export const fetchTodos = createAsyncThunk('todos/fetchTodos', async () => {
-  const response = await client.get('/fakeApi/todos')
-  return response.todos as ITodo[]
+  const res = await fetchTodosAPI()
+  return res as ITodo[]
 })
 
 export const saveNewTodo = createAsyncThunk('todos/saveNewTodo', async (text: string) => {
-  const initialTodo = { text }
-  const response = await client.post('/fakeApi/todos', { todo: initialTodo })
-  return response.todo as ITodo
+  const res = await saveNewTodoAPI(text)
+  return res as ITodo
 })
 
 const todosSlice = createSlice({

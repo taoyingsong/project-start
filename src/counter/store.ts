@@ -3,7 +3,7 @@ import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit'
 // eslint-disable-next-line import/no-cycle,import/no-import-module-exports
 import rootReducer from './rootReducer'
 
-export const store = configureStore({
+const store = configureStore({
   reducer: rootReducer,
 })
 

@@ -1,12 +1,11 @@
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 const devMode = process.env.NODE_ENV !== 'production'
 
 module.exports = {
   entry: {
-    // app: './src/todo/index.js',
-    // app: './src/essentials/index.js',
     app: './src/index.tsx',
   },
   output: {
@@ -18,15 +17,18 @@ module.exports = {
     rules: [
       {
         test: /\.(js|jsx|ts|tsx)$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          // // 在babel.config.js中配置
-          // options: {
-          //   cacheDirectory: true, // 暂时去掉缓存方便调试
-          //   plugins: ['@babel/plugin-transform-runtime'],
-          // },
-        },
+        exclude: [/node_modules/],
+        use: [
+          'thread-loader',
+          {
+            loader: 'babel-loader',
+            options: {
+              cacheDirectory: true, // 暂时去掉缓存方便调试
+              // // 在babel.config.js中配置
+              // plugins: ['@babel/plugin-transform-runtime'],
+            },
+          },
+        ],
       },
       {
         test: /\.(le|c)ss$/i,
@@ -58,15 +60,23 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        exclude: [/node_modules/],
         type: 'asset/resource',
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        exclude: [/node_modules/],
         type: 'asset/resource',
       },
     ],
   },
+  plugins: [new CleanWebpackPlugin()],
   resolve: {
     extensions: ['.tsx', '.ts', 'jsx', '.js', '.json'],
+    alias: {
+      // react: path.resolve(__dirname, './node_modules/react/index.js'),
+      '@src': path.resolve(__dirname, '../src'),
+      // mainFields: ['main'],
+    },
   },
 }

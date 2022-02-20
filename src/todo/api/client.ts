@@ -1,15 +1,16 @@
 // A tiny wrapper around fetch(), borrowed from
 // https://kentcdodds.com/blog/replace-axios-with-a-simple-custom-fetch-wrapper
 
-export async function client(endpoint, { body, ...customConfig } = {}) {
+// @ts-ignore
+export default async function client(endpoint, { body, ...customConfig } = {}) {
   const headers = { 'Content-Type': 'application/json' }
 
-  const config = {
+  const config: any = {
     method: body ? 'POST' : 'GET',
     ...customConfig,
     headers: {
       ...headers,
-      ...customConfig.headers,
+      ...((customConfig as any).headers ? (customConfig as any).headers : {}),
     },
   }
 
@@ -26,11 +27,12 @@ export async function client(endpoint, { body, ...customConfig } = {}) {
     }
     throw new Error(response.statusText)
   } catch (err) {
+    // @ts-ignore
     return Promise.reject(err.message ? err.message : data)
   }
 }
 
-client.get = function (endpoint, customConfig = {}) {
+client.get = function (endpoint: string, customConfig: any = {}) {
   return client(endpoint, { ...customConfig, method: 'GET' })
 }
 

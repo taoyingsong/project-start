@@ -1,17 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { List, Row, Col } from 'antd'
 import classnames from 'classnames'
-import { useAppSelector } from '../../common/hooks/reactRedux'
-import { selectFilteredTodoIds } from './todosSlice'
+import { useAppDispatch, useAppSelector } from '../../common/hooks/reactRedux'
+import { fetchTodos, selectFilteredTodoIds } from './todosSlice'
 import TodoListItem from './TodoListItem'
 import styles from './TodoList.module.less'
 
 const TodoList = () => {
   const todoIds = useAppSelector(selectFilteredTodoIds)
+  const dispatch = useAppDispatch()
   const loadingStatus = useAppSelector(state => state.todos.status)
-
+  useEffect(() => {
+    dispatch(fetchTodos())
+  }, [])
   return (
-    <section className={classnames('todo-list', styles.todoList)}>
+    <section className={classnames('todo-list', styles.todoList)} data-testid="todoList">
       <Row>
         <Col span={8} offset={8}>
           <List

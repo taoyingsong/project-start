@@ -9,7 +9,9 @@ const Header = () => {
   const [status, setStatus] = useState('idle')
   const dispatch = useDispatch()
 
-  const handleChange = (e: { target: { value: React.SetStateAction<string> } }) => setText(e.target.value)
+  const handleChange = (e: { target: { value: React.SetStateAction<string> } }) => {
+    setText(e.target.value)
+  }
 
   const handleKeyDown = async (e: { which: number }) => {
     const trimmedText = text.trim()
@@ -26,7 +28,8 @@ const Header = () => {
   const loader = isLoading ? <div className="loader" /> : null
 
   return (
-    <header className="todo-header">
+    <header className="todo-header" data-testid="todoHeader">
+      <h2>Todo List</h2>
       <Input
         style={{ width: '40%' }}
         placeholder={placeholder}
@@ -41,4 +44,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default React.memo(Header)

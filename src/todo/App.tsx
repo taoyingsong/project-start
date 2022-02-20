@@ -22,7 +22,7 @@ const AppLayout = () => {
 }
 const TodoPage = () => {
   return (
-    <main className="App todoapp">
+    <main className="app todo-app">
       <Header />
       <Operations />
       <TodoList />
