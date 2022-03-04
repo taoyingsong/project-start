@@ -1,11 +1,12 @@
 import React from 'react'
 import { Outlet, Route, Routes } from 'react-router-dom'
+// eslint-disable-next-line import/no-unresolved
+import NoMatch from '@src/common/component/noMatch/NoMatch'
 import Header from './features/header/Header'
 import TodoList from './features/todos/TodoList'
 import Operations from './features/operations/Operations'
 import Footer from './features/footer/Footer'
-import NoMatch from '../common/component/noMatch/NoMatch'
-import './App.less'
+import './App.css'
 
 const App = () => {
   return (

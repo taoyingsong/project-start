@@ -1,16 +1,16 @@
 module.exports = {
     settings: {
-        'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],
+        'import/extensions': ['.tsx', '.ts', '.jsx', '.js'],
         'import/parsers': {
-            '@typescript-eslint/parser': ['.ts', '.tsx']
+            '@typescript-eslint/parser': ['.tsx', '.ts']
         },
         'import/resolver': {
             'node': {
-                'extensions': ['.js', '.jsx', '.ts', '.tsx']
+                'extensions': ['.tsx', '.ts', '.jsx', '.js']
             },
             'webpack': {
-                'config': 'webpack.common.js'
-            },
+                'config': 'webpack/webpack.common.js'
+            }
         }
     },
     env: {

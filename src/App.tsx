@@ -2,10 +2,10 @@ import React, { useState, useMemo } from 'react'
 import { Layout, Menu, Breadcrumb } from 'antd'
 import { UserOutlined, DesktopOutlined, PieChartOutlined } from '@ant-design/icons'
 import { Link, Outlet, Route, Routes, Navigate, useLocation } from 'react-router-dom'
-import NoMatch from './common/component/noMatch/NoMatch'
-import Loading from './common/component/pageLoading/Loading'
+import Loading from '@src/common/component/pageLoading/Loading'
+import NoMatch from '@src/common/component/noMatch/NoMatch'
 import Dashboard from './dashboard/Dashboard'
-import './App.less'
+import './App.css'
 
 const { Content, Sider } = Layout
 const Counter = React.lazy(() => import('./counter/index'))

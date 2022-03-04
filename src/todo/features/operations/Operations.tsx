@@ -3,8 +3,8 @@ import { Checkbox, Radio } from 'antd'
 import { useAppDispatch } from '../../common/hooks/reactRedux'
 import { colorOptions } from '../filters/colors'
 import { colorsFilterChanged, statusFilterChanged, StatusFilters, CheckboxValueType } from '../filters/filtersSlice'
-import styles from './Operations.module.less'
-import './Operations.less'
+import styles from './Operations.module.css'
+import './Operations.css'
 
 // eslint-disable-next-line no-unused-vars
 const StatusFilter = ({ onChange }: { onChange: (status: string) => void }) => {

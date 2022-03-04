@@ -4,7 +4,7 @@ import classnames from 'classnames'
 import { useAppDispatch, useAppSelector } from '../../common/hooks/reactRedux'
 import { fetchTodos, selectFilteredTodoIds } from './todosSlice'
 import TodoListItem from './TodoListItem'
-import styles from './TodoList.module.less'
+import styles from './TodoList.module.css'
 
 const TodoList = () => {
   const todoIds = useAppSelector(selectFilteredTodoIds)

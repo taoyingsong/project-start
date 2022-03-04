@@ -3,13 +3,16 @@
   align-items: center;
   justify-content: center;
 }
+
 .row > button {
   margin-left: 4px;
   margin-right: 8px;
 }
+
 .row:not(:last-child) {
   margin-bottom: 16px;
 }
+
 .value {
   font-size: 78px;
   padding-left: 16px;
@@ -17,6 +20,7 @@
   margin-top: 2px;
   font-family: 'Courier New', Courier, monospace;
 }
+
 .button {
   appearance: none;
   background: none;
@@ -25,13 +29,15 @@
   padding-right: 12px;
   outline: none;
   border: 2px solid transparent;
+  //color: rgb(112, 76, 182);
   padding-bottom: 4px;
   cursor: pointer;
   background-color: #fff;
   border-radius: 2px;
   transition: all 0.15s;
-  border: 2px solid #d9d9d9;
+  border: 2px solid #d9d9d9
 }
+
 .textbox {
   font-size: 20px;
   padding: 2px;
@@ -39,21 +45,25 @@
   text-align: center;
   margin-right: 4px;
 }
+
 .button:hover,
 .button:focus {
   border: 2px solid #40a9ff;
   color: #40a9ff;
 }
+
 .button:active {
   background-color: #fff;
 }
+
 .asyncButton {
   composes: button;
   position: relative;
 }
+
 .asyncButton:after {
   content: '';
-  background-color: rgba(58, 168, 255, 0.15);
+  background-color: rgba(58,168,255,0.15);
   display: block;
   position: absolute;
   width: 100%;
@@ -63,9 +73,9 @@
   opacity: 0;
   transition: width 1s linear, opacity 0.5s ease 1s;
 }
+
 .asyncButton:active:after {
   width: 0%;
   opacity: 1;
   transition: 0s;
 }
-/*# sourceMappingURL=Counter.module.css.map */

@@ -38,8 +38,8 @@ module.exports = merge(common, {
       inject: 'body',
     }),
     new MiniCssExtractPlugin({
-      filename: '[name].[contenthash].css',
-      chunkFilename: '[id].[contenthash].css',
+      filename: '[name].[contenthash:8].css',
+      chunkFilename: '[id].[contenthash:8].css',
       ignoreOrder: false, // Enable to remove warnings about conflicting order
     }),
     new BundleAnalyzerPlugin(),

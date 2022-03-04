@@ -4,14 +4,14 @@
 }
 .site-layout {
   padding: 0 24px 24px;
+  .bread-crumb {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 16px 0;
+  }
 }
-.site-layout .bread-crumb {
-  font-size: 20px;
-  font-weight: bold;
-  margin: 16px 0;
-}
+
 .site-content-background {
   padding-top: 30px;
   background: #fff;
 }
-/*# sourceMappingURL=App.css.map */
