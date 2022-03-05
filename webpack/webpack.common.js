@@ -51,7 +51,7 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        exclude: [/\.module\.css$/i], // node_modules文件（其中的antd好像就没考虑支持css modules）、结尾没有.module的less文件，不开启css modules。这时全局生效
+        exclude: [/\.module\.css$/i], // node_modules文件（其中的antd好像就没考虑支持css modules）、结尾没有.module的样式文件，不开启css modules。这时全局生效
         use: [
           devMode ? 'style-loader' : MiniCssExtractPlugin.loader, // 直接在development环境写MiniCssExtractPlugin.loader不行。
           // { // 报错，组件的bug
