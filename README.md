@@ -2,18 +2,28 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 - [project-start](#project-start)
-    - [问题](#%E9%97%AE%E9%A2%98)
-        - [（一）Node版本管理](#%E4%B8%80node%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86)
-        - [（二）Babel7 vs ts-loader](#%E4%BA%8Cbabel7-vs-ts-loader)
-        - [（三）ESLint(TSLint)、Prettier](#%E4%B8%89eslinttslintprettier)
-        - [（四）TypeScript](#%E5%9B%9Btypescript)
-        - [（五）测试](#%E4%BA%94%E6%B5%8B%E8%AF%95)
-        - [（六）其他](#%E5%85%AD%E5%85%B6%E4%BB%96)
-
+  - [背景](#%E8%83%8C%E6%99%AF)
+    - [分支说明](#%E5%88%86%E6%94%AF%E8%AF%B4%E6%98%8E)
+  - [问题](#%E9%97%AE%E9%A2%98)
+    - [（一）Node版本管理](#%E4%B8%80node%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86)
+    - [（二）Babel7 vs ts-loader](#%E4%BA%8Cbabel7-vs-ts-loader)
+    - [（三）ESLint(TSLint)、Prettier](#%E4%B8%89eslinttslintprettier)
+    - [（四）TypeScript](#%E5%9B%9Btypescript)
+    - [（五）测试](#%E4%BA%94%E6%B5%8B%E8%AF%95)
+    - [（六）其他](#%E5%85%AD%E5%85%B6%E4%BB%96)
+    
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # project-start
 using React Hook + Webpack5 + React Router6 + Typescript + Jest + React Testing Library
+## 背景
+一个入门3个月起步的项目，改造2两年之际，提炼出此项目原型。
+对前端技术有兴趣，不满足于日常业务开发的同学可以一起完善、互相学习。  
+  
+### 分支说明
++ **master**：基础项目配置，以此分支为基础，可以对感兴趣的前端技术进行拓展、验证、实践。
++ **react-hook-webpack-ts-jest-start**：以实际项目升级、改造程中沉淀的知识为基础，提炼出此项目原型。
+
 
 ## 问题
 ### （一）Node版本管理
